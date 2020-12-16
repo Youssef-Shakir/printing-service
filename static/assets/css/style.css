@@ -1598,3 +1598,20 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+
+
+.btn-org{
+border-color:#ef6603;
+color:#ef6603;
+}
+
+.btn-org:hover{
+border-color:#ef6603;
+background-color:#ef6603;
+color:white;
+}
+
+.btn-org:focus {
+box-shadow:0 0 0 .2rem #ffa563
+}

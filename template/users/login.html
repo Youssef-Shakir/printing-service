@@ -1,0 +1,16 @@
+{% extends 'userside/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section col-5 offset-1 border">
+
+<form method="POST" class="m-4">
+	{% csrf_token %}
+	<fieldset class="form-group">
+		<legend class="border-bottom mb-4">login</legend>
+		{{form|crispy}}
+	</fieldset>
+	<button class="btn btn-org" type="submit">Log In</button>
+</form>	
+
+</div>
+{% endblock %}
