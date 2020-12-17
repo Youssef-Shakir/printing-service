@@ -58,8 +58,13 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#about">login</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'userside:dashboard' %}">Dashboard</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">login</a></li>
           <li><a href="#contact">register</a></li>
+          {% endif %}
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -74,10 +79,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>{% block p_title %}{% endblock %}</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Inner Page</li>
+            <li><a href="{% url 'userside:home' %}">Home</a></li>
+            <li>{% block s_title %}{% endblock %}</li>
           </ol>
         </div>
 

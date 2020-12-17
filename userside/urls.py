@@ -5,5 +5,5 @@ app_name = 'userside'
 
 urlpatterns = [
 	path('',views.index,name='home'),
-	path('base/',views.base,name='base')
+	path('dashboard/',views.dashboard,name='dashboard')
 ]

@@ -1,7 +1,10 @@
 {% extends 'userside/base.html' %}
 {% load crispy_forms_tags %}
+{% block p_title %} login {% endblock %}
+{% block s_title %} login {% endblock %}
+
 {% block content %}
-<div class="content-section col-5 offset-1 border">
+<div class="content-section col-sm-10 col-lg-6 border">
 
 <form method="POST" class="m-4">
 	{% csrf_token %}
