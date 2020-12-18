@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 from django.utils import timezone
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 class order(models.Model):
@@ -29,5 +30,9 @@ class order(models.Model):
 	bending_type = models.CharField(max_length=300,choices = bending_types,default='clips')
 	data_orderd = models.DateTimeField(default=timezone.now)
 	order_statis = models.CharField(max_length=300,choices = order_staties,default='pending')
+	phone_number = PhoneNumberField(null=False, blank=False, unique=False)
 	location = models.CharField(max_length=300,default='')
 	notes = models.TextField(max_length=1000,default='')
+
+	def __str__(self):
+		return f'id={self.pk}'

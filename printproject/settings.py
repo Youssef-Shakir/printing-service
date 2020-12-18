@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'userside.apps.UsersideConfig',
     'users.apps.UsersConfig',
 #third party apps
+    'phonenumber_field',
     'crispy_forms',
 #django apps
     'django.contrib.admin',
@@ -137,3 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'userside:dashboard'
+
+
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'IQ'
+
+
+LOGIN_URL = 'login'
