@@ -87,20 +87,20 @@
         </div>
       </div>
     </section><!-- End Breadcrumbs -->
+    <!-- alerts -->
     {% if messages %}
-        
-    <section class="m-0 p-0">
-      <div class="row" >
-         <div class="mt-1 col-4 justify-content-center align-items-center ml-5 ">
+    <section class="breadcrumbs mt-0 bg-white">
+      <div class="container">
         {% for x in messages %}
-        <div class="alert alert-{{x.tags}}">
+        <div class="alert alert-{{x.tags}} col-5">
           {{x}}
         </div>
         {% endfor %}
       </div>
-      </div>
     </section>
     {% endif %}
+    <!-- end alrts -->
+    <!-- body -->
     <section class="inner-page pt-2">
 
       <div class="container">

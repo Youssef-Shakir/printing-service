@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import UserRegisterForm,SetProfileForm
 from django.contrib import messages
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -17,8 +18,18 @@ def registerview(request):
 	else:
 		form = UserRegisterForm()
 		return render(request,'users/register.html',{'form':form})
-
+@login_required
 def setprofile(request):
-	form = SetProfileForm()
-	context = {'form':form}
-	return render(request,'users/set_profile.html',context)
+	if request.user.profile.phone_number == '':
+		print('ksamk')
+		if request.method == 'POST':
+			form = SetProfileForm(request.POST,instance=request.user.profile)
+			if form.is_valid():
+				form.save()
+				return redirect('userside:dashboard')
+		else:
+			form = SetProfileForm()
+			context = {'form':form}
+			return render(request,'users/set_profile.html',context)
+	else:
+		return redirect('userside:dashboard')
