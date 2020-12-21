@@ -1615,3 +1615,30 @@ color:white;
 .btn-org:focus {
 box-shadow:0 0 0 .2rem #ffa563
 }
+
+.btn-org-r{
+border-color:#ef6603;
+background-color:#ef6603;
+color:white;
+}
+
+
+.btn-org-r:hover{
+background-color: white;
+border-color:#ef6603;
+color:#ef6603;
+}
+
+.btn-org-r:focus {
+box-shadow:0 0 0 .2rem #ffa563
+}
+
+
+.a {
+  color: #ef6603;
+}
+
+.a:hover {
+  color: #fc8129;
+  text-decoration: none;
+}

@@ -10,4 +10,7 @@ def index(request):
 def dashboard(request):
 	if request.user.profile.phone_number == '':
 		return redirect('setprofile')
-	return render(request,'userside/dashboard.html')
+	elif request.user.first_name == '':
+		return redirect('setprofile')
+	else:
+		return render(request,'userside/dashboard.html')

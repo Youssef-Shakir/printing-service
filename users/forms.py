@@ -14,3 +14,16 @@ class SetProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
 		fields = ['phone_number','address']
+
+class SetFaLForm(forms.ModelForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('first_name','last_name')
+
+class ChangePassword(UserCreationForm):
+	old_password = forms.CharField(widget=forms.PasswordInput)
+	new_password = forms.CharField(widget=forms.PasswordInput)
+	con_new_password = 

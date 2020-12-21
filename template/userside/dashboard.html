@@ -5,8 +5,23 @@
 <div class="row"> 
 		<div class="mt-2 col-lg-6 ml-2 mr-2 col-sm-12 border">
 			<!-- account section -->
-
-			
+			<div class="content-section">
+				<div class="row">
+				<legend class="border-bottom ml-3 mt-2">Account Detail</legend>
+					<div class="ml-3 col-8">
+						<h5>username : {{user.username}}</h5>
+						<h5>email : {{ user.email }}</h5>
+						<h5>first name : {{ user.first_name }}</h5>
+						<h5>last name : {{ user.last_name }}</h5>
+						<h5>phone number : {{user.profile.phone_number}}</h5>
+						<h5>address : {{user.profile.address}}</h5>
+					</div>
+					<div class="col">
+						<a class="btn btn-org mt-1 mb-2" href="{% url 'setprofile' %}">change information</a>
+						<a class="ml-2 btn btn-org mt-1 mb-2" href="{% url 'setprofile' %}">change password</a>
+					</div>
+				</div>
+			</div>
 			<!-- /account section -->
 		</div>
 		<div class="ml-2 mt-2 mr-2 col-lg col-sm-12 border ">
