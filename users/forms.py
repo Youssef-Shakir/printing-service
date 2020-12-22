@@ -22,8 +22,3 @@ class SetFaLForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name','last_name')
-
-class ChangePassword(UserCreationForm):
-	old_password = forms.CharField(widget=forms.PasswordInput)
-	new_password = forms.CharField(widget=forms.PasswordInput)
-	con_new_password = 

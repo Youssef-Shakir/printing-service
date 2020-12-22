@@ -3,7 +3,17 @@ from .forms import UserRegisterForm,SetProfileForm,SetFaLForm
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
 # Create your views here.
+
+class ChangePass(PasswordChangeView):
+	template_name = 'users/password_change.html'
+	success_url = reverse_lazy('userside:dashboard')
+
+	def form_valid(self,form):
+		messages.success(self.request,'your password has been changed')
+		return super().form_valid(form)
 
 
 def registerview(request):
@@ -28,6 +38,9 @@ def setprofile(request):
 				form_2.save()
 				messages.success(request,'your profile has been set')
 				return redirect('userside:dashboard')
+			else:
+				messages.success(request,'error try agine later')
+				return redirect('setprofile')
 		else:
 			form_1 = SetProfileForm(instance=request.user.profile)
 			form_2 = SetFaLForm(instance=request.user)
