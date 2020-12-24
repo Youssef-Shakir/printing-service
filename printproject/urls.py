@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from users import views as users_views
 from django.urls import reverse_lazy
@@ -27,3 +29,6 @@ urlpatterns = [
     path('register/',users_views.registerview,name='register'),
     path('setup/',users_views.setprofile,name='setprofile')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

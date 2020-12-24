@@ -3,6 +3,7 @@ from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
+from PyPDF2 import PdfFileReader
 # Create your models here.
 
 class order(models.Model):
@@ -33,6 +34,10 @@ class order(models.Model):
 	phone_number = PhoneNumberField(null=False, blank=False, unique=False)
 	location = models.CharField(max_length=300,default='')
 	notes = models.TextField(max_length=1000,default='')
+	def pages_num(self):
+		self.pdf = PdfFileReader(open(self.pdf_file.path,'rb'))
+		self.page_num = self.pdf.getNumPages()
+		return self.page_num
 
 	def __str__(self):
 		return f'id={self.pk}'
