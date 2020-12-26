@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import order
+from .forms import CreateOrderForm
 # Create your views here.
 
 def index(request):
@@ -14,3 +15,12 @@ def dashboard(request):
 		return redirect('setprofile')
 	else:
 		return render(request,'userside/dashboard.html')
+
+def createorderview(request):
+	if request.method == 'POST':
+		pass
+
+	else:
+		form = CreateOrderForm()
+		context = {'form':form}
+		return render(request,'userside/createorder.html',context)
