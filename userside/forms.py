@@ -7,6 +7,6 @@ class CreateOrderForm(forms.ModelForm):
         model = order
         widgets = {
         'paper_size' : forms.RadioSelect(),
-        'location' : forms.TextInput(attrs={'placeholder':'ksamnk'})
+        'location' : forms.TextInput(attrs={'placeholder':'your home adress'}),
         }
         fields = ['pdf_file','paper_size','bending_type','phone_number','location','notes']
